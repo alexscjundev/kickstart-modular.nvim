@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Copy buffer full path to clipboard
 -- "yank path"
-function CopyBufferNameToClipboard()
+function CopyBufferNameAndFullPath()
   local buffer_name = vim.api.nvim_buf_get_name(0)
   vim.fn.setreg('+', buffer_name)
   vim.cmd('echo "Buffer Name copied to clipboard: ' .. buffer_name .. '"')
@@ -70,8 +70,24 @@ end
 vim.api.nvim_set_keymap(
   'n',
   '<Leader>yp',
-  ':lua CopyBufferNameToClipboard()<CR>',
+  ':lua CopyBufferNameAndFullPath()<CR>',
   { noremap = true, silent = true, desc = 'Yank the path of this buffer into clipboard' }
+)
+
+-- Copy only buffer file name to clipboard
+-- "yank filename"
+function CopyBufferNameToClipboard()
+  local buffer_name = vim.api.nvim_buf_get_name(0)
+  local file_name = vim.fn.fnamemodify(buffer_name, ':t')
+  vim.fn.setreg('+', file_name)
+  vim.cmd('echo "File Name copied to clipboard: ' .. file_name .. '"')
+end
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>yn',
+  ':lua CopyBufferNameToClipboard()<CR>',
+  { noremap = true, silent = true, desc = 'Yank the file name of this buffer into clipboard' }
 )
 
 -- Function to output all mappings to a file

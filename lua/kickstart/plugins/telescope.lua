@@ -109,6 +109,11 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- My additions for quickfix, jumplist
+      -- "utility" + ..
+      vim.keymap.set('n', '<leader>uq', builtin.quickfix, { desc = 'Open quickfix list in Telescope' })
+      vim.keymap.set('n', '<leader>uj', builtin.jumplist, { desc = 'Open jumplist in Telescope' })
     end,
   },
 }
