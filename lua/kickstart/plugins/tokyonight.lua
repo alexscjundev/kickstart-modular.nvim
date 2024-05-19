@@ -17,7 +17,7 @@ return {
     end,
     opts = {
       on_highlights = function(hl, c)
-        hl.WinSeparator = { fg = c.info }
+        hl.WinSeparator = { fg = c.purple }
       end,
     },
   },
