@@ -46,9 +46,24 @@ return {
           bmui.nav_file(i)
         end, opts)
       end
-      -- Just the menu
-      map({ 't', 'n' }, '<M-m>', bmui.toggle_quick_menu, opts)
+
+      -- Open menu and search
+      -- map({ 't', 'n' }, '<M-c>', function()
+      --   bmui.toggle_quick_menu()
+      --   -- wait for the menu to open
+      --   vim.defer_fn(function()
+      --     vim.fn.feedkeys '/'
+      --   end, 50)
+      -- end, opts)
+      -- Next/Prev
+
+      -- ===========================
+      --     harpoon functions
+      -- ===========================
       -- Give homerow harpoon access
+      -- Toggle the menu
+      -- Switch between adjacent ones
+      map({ 't', 'n' }, '<M-m>', bmui.toggle_quick_menu, opts)
       map('n', '<M-j>', function()
         bmui.nav_file(1)
       end, opts)
@@ -61,17 +76,29 @@ return {
       map('n', '<M-;>', function()
         bmui.nav_file(4)
       end, opts)
-      -- Open menu and search
-      -- map({ 't', 'n' }, '<M-c>', function()
-      --   bmui.toggle_quick_menu()
-      --   -- wait for the menu to open
-      --   vim.defer_fn(function()
-      --     vim.fn.feedkeys '/'
-      --   end, 50)
-      -- end, opts)
-      -- Next/Prev
       map('n', '<M-n>', bmui.nav_next, opts)
       map('n', '<M-p>', bmui.nav_prev, opts)
+
+      -- ===========================
+      --   alternate harpoons
+      -- ===========================
+      -- for usage on mac, because meta is finnicky
+      -- backslash becomes new "harpoon key"
+      map({ 't', 'n' }, '\\m', bmui.toggle_quick_menu, opts)
+      map('n', '\\j', function()
+        bmui.nav_file(1)
+      end, opts)
+      map('n', '\\k', function()
+        bmui.nav_file(2)
+      end, opts)
+      map('n', '\\l', function()
+        bmui.nav_file(3)
+      end, opts)
+      map('n', '\\;', function()
+        bmui.nav_file(4)
+      end, opts)
+      map('n', '\\n', bmui.nav_next, opts)
+      map('n', '\\p', bmui.nav_prev, opts)
     end,
   },
 }

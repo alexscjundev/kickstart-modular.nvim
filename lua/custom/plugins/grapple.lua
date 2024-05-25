@@ -25,6 +25,7 @@ return {
   -- use my own keys
   keys = {
     { '<M-b>', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
+    { '\\b', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
     -- { '<M-m>', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
 
     -- { '<M-s>', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },

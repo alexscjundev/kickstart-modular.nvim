@@ -78,10 +78,22 @@ return {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+
+      -- searches files without showing hidden ones (non-default)
+      vim.keymap.set('n', '<leader>sfn', builtin.find_files, { desc = '[S]earch [F]iles and do not include hidden ones' })
+      vim.keymap.set('n', '<leader>sfh', function()
+        require('telescope.builtin').find_files { hidden = true }
+      end, { desc = '[S]earch [F]iles including hidden ones' })
+
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+
+      -- ctrl-q writes to quickfix
+      vim.keymap.set('n', '<leader>sgn', builtin.live_grep, { desc = '[S]earch by [G]rep and do not include hidden ones' })
+      vim.keymap.set('n', '<leader>sgh', function()
+        require('telescope.builtin').live_grep { hidden = true }
+      end, { desc = '[S]earch [G]rep including hidden files' })
+
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -111,6 +123,8 @@ return {
       end, { desc = '[S]earch [N]eovim files' })
 
       -- My additions for quickfix, jumplist
+      -- Quickfix notes are going here for now
+      -- use Cfilter[!] to get rid of quickfixes that are undesirable
       -- "utility" + ..
       vim.keymap.set('n', '<leader>uq', builtin.quickfix, { desc = 'Open quickfix list in Telescope' })
       vim.keymap.set('n', '<leader>uj', builtin.jumplist, { desc = 'Open jumplist in Telescope' })
