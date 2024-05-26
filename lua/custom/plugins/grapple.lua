@@ -28,7 +28,8 @@ return {
     { '\\b', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
     -- { '<M-m>', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
 
-    -- { '<M-s>', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },
+    { '<M-s>', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },
+    { '\\s', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },
     -- { '<M-n>', '<cmd>Grapple cycle_tags next<cr>', desc = 'Go to next tag' },
     -- { '<M-p>', '<cmd>Grapple cycle_tags prev<cr>', desc = 'Go to previous tag' },
 
