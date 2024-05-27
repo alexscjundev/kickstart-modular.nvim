@@ -25,11 +25,11 @@ return {
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
-    -- opts = {
-    --   on_highlights = function(hl, c)
-    --     hl.WinSeparator = { fg = c.purple }
-    --   end,
-    -- },
+    opts = {
+      on_highlights = function(hl, c)
+        hl.WinSeparator = { fg = c.purple }
+      end,
+    },
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
