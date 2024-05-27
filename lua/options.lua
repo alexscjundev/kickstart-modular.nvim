@@ -63,6 +63,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Enable usage of Cfilter (quickfix filter)
-vim.cmd 'packadd Cfilter'
+vim.cmd 'packadd cfilter'
 
 -- vim: ts=2 sts=2 sw=2 et
