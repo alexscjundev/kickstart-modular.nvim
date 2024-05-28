@@ -90,10 +90,16 @@ return {
 
       -- ctrl-q writes to quickfix
       vim.keymap.set('n', '<leader>sgn', builtin.live_grep, { desc = '[S]earch by [G]rep and do not include hidden ones' })
-      vim.keymap.set('n', '<leader>sgh', function()
-        require('telescope.builtin').live_grep { hidden = true }
-      end, { desc = '[S]earch [G]rep including hidden files' })
 
+      -- live grep uses ripgrep - which must be configured to search hidden files
+      vim.keymap.set('n', '<leader>sgh', function()
+        require('telescope.builtin').live_grep {
+          file_ignore_patterns = {},
+          additional_args = function(_)
+            return { '--hidden' }
+          end,
+        }
+      end, { desc = '[S]earch [G]rep including hidden files' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
