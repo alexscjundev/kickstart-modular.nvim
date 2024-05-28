@@ -79,11 +79,36 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
+      -- ============================================================
+      --    NOTES ABOUT HIDDEN BEHAVIOUR
+      -- ============================================================
+      -- has to be configured inside each mapping
+      -- uses rg - which ignores gitignored files
+      -- all hidden behaviour comes from gitignore
+      -- in the future, use "pickers" don't know how these work yet
+
       -- searches files without showing hidden ones (non-default)
       vim.keymap.set('n', '<leader>sfn', builtin.find_files, { desc = '[S]earch [F]iles and do not include hidden ones' })
+
+      -- search files with showing hidden ones
       vim.keymap.set('n', '<leader>sfh', function()
         require('telescope.builtin').find_files { hidden = true }
       end, { desc = '[S]earch [F]iles including hidden ones' })
+
+      -- search files in a specific set of directories
+      vim.keymap.set('n', '<leader>sfd', function()
+        local input = vim.fn.input 'Search Directories (space separated): '
+        local dirs = {}
+        for dir in string.gmatch(input, '%S+') do
+          table.insert(dirs, dir)
+        end
+
+        local opts = {
+          hidden = true,
+          search_dirs = dirs,
+        }
+        require('telescope.builtin').find_files(opts)
+      end, { desc = '[S]earch [F]iles including hidden ones in [D]irectories' })
 
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -100,6 +125,26 @@ return {
           end,
         }
       end, { desc = '[S]earch [G]rep including hidden files' })
+
+      -- same as above but allow user to specify search directories
+      -- note - make sure to add / at the end
+      vim.keymap.set('n', '<leader>sgd', function()
+        local input = vim.fn.input 'Search Directories (space separated): '
+        local dirs = {}
+        for dir in string.gmatch(input, '%S+') do
+          table.insert(dirs, dir)
+        end
+
+        local opts = {
+          file_ignore_patterns = {},
+          additional_args = function(_)
+            return { '--hidden' }
+          end,
+          search_dirs = dirs,
+        }
+        require('telescope.builtin').live_grep(opts)
+      end, { desc = '[S]earch [G]rep including hidden files in [D]irectories' })
+
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
