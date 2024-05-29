@@ -60,12 +60,27 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Copy buffer directory path to clipboard
+-- "yank directory"
+function CopyBufferDirectoryPath()
+  local buffer_name = vim.api.nvim_buf_get_name(0)
+  local directory_path = vim.fn.fnamemodify(buffer_name, ':h')
+  vim.fn.setreg('+', directory_path)
+  vim.cmd('echo "Directory path copied to clipboard: ' .. directory_path .. '"')
+end
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>yd',
+  ':lua CopyBufferDirectoryPath()<CR>',
+  { noremap = true, silent = true, desc = 'Yank the directory path of this buffer into clipboard' }
+)
+
 -- Copy buffer full path to clipboard
 -- "yank path"
 function CopyBufferNameAndFullPath()
   local buffer_name = vim.api.nvim_buf_get_name(0)
   vim.fn.setreg('+', buffer_name)
-  vim.cmd('echo "Buffer Name copied to clipboard: ' .. buffer_name .. '"')
+  vim.cmd('echo "Buffer Name and Full Path copied to clipboard: ' .. buffer_name .. '"')
 end
 vim.api.nvim_set_keymap(
   'n',
