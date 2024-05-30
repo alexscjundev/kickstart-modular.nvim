@@ -29,23 +29,26 @@ return {
           },
         },
         focus_alternate_buffer = false,
-        short_file_names = true,
-        short_term_names = true,
+        short_file_names = false,
+        short_term_names = false,
         loop_nav = false,
         highlight = 'Normal:BufferManagerBorder',
         win_extra_options = {
           winhighlight = 'Normal:BufferManagerNormal',
         },
       }
+
+      -- Do not use - this messes with some stuff like
+      -- deleting multiple lines
       -- Navigate buffers bypassing the menu
       local bmui = require 'buffer_manager.ui'
-      local keys = '1234567890'
-      for i = 1, #keys do
-        local key = keys:sub(i, i)
-        map('n', string.format('<M-%s>', key), function()
-          bmui.nav_file(i)
-        end, opts)
-      end
+      -- local keys = '1234567890'
+      -- for i = 1, #keys do
+      --   local key = keys:sub(i, i)
+      --   map('n', string.format('<M-%s>', key), function()
+      --     bmui.nav_file(i)
+      --   end, opts)
+      -- end
 
       -- Open menu and search
       -- map({ 't', 'n' }, '<M-c>', function()
