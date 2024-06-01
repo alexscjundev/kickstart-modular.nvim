@@ -1,6 +1,9 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Use z as grapple leader
+vim.keymap.set('n', 'z', '<nop>')
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -48,6 +51,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 --
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
+
+-- Custom operator that yanks "contexts" from neovim
+-- The output would be [filepath:line_number]text object
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

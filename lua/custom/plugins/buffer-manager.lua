@@ -5,6 +5,10 @@ return {
     -- * bn, bp
     -- * storing open buffer list to a file (haven't found this useful yet)
     --
+    -- 5.31 - after working on a monorepo we are going back to
+    -- harpoon LOL
+    -- persisting harpoons is very desirable.
+    --
     -- This has now become my full harpoon interface
     -- - teleport to harpooned location
     -- manage buffer list (add, delete, reorder)
@@ -66,42 +70,44 @@ return {
       -- Give homerow harpoon access
       -- Toggle the menu
       -- Switch between adjacent ones
-      map({ 't', 'n' }, '<M-m>', bmui.toggle_quick_menu, opts)
-      map('n', '<M-j>', function()
-        bmui.nav_file(1)
-      end, opts)
-      map('n', '<M-k>', function()
-        bmui.nav_file(2)
-      end, opts)
-      map('n', '<M-l>', function()
-        bmui.nav_file(3)
-      end, opts)
-      map('n', '<M-;>', function()
-        bmui.nav_file(4)
-      end, opts)
-      map('n', '<M-n>', bmui.nav_next, opts)
-      map('n', '<M-p>', bmui.nav_prev, opts)
+      map({ 't', 'n' }, '<M-b>', bmui.toggle_quick_menu, opts)
+      -- map({ 't', 'n' }, '<M-m>', bmui.toggle_quick_menu, opts)
+      -- map('n', '<M-j>', function()
+      --   bmui.nav_file(1)
+      -- end, opts)
+      -- map('n', '<M-k>', function()
+      --   bmui.nav_file(2)
+      -- end, opts)
+      -- map('n', '<M-l>', function()
+      --   bmui.nav_file(3)
+      -- end, opts)
+      -- map('n', '<M-;>', function()
+      --   bmui.nav_file(4)
+      -- end, opts)
+      -- map('n', '<M-n>', bmui.nav_next, opts)
+      -- map('n', '<M-p>', bmui.nav_prev, opts)
 
       -- ===========================
       --   alternate harpoons
       -- ===========================
       -- for usage on mac, because meta is finnicky
       -- backslash becomes new "harpoon key"
-      map({ 't', 'n' }, '\\m', bmui.toggle_quick_menu, opts)
-      map('n', '\\j', function()
-        bmui.nav_file(1)
-      end, opts)
-      map('n', '\\k', function()
-        bmui.nav_file(2)
-      end, opts)
-      map('n', '\\l', function()
-        bmui.nav_file(3)
-      end, opts)
-      map('n', '\\;', function()
-        bmui.nav_file(4)
-      end, opts)
-      map('n', '\\n', bmui.nav_next, opts)
-      map('n', '\\p', bmui.nav_prev, opts)
+      map({ 't', 'n' }, 'zb', bmui.toggle_quick_menu, opts)
+      -- map({ 't', 'n' }, '\\m', bmui.toggle_quick_menu, opts)
+      -- map('n', '\\j', function()
+      --   bmui.nav_file(1)
+      -- end, opts)
+      -- map('n', '\\k', function()
+      --   bmui.nav_file(2)
+      -- end, opts)
+      -- map('n', '\\l', function()
+      --   bmui.nav_file(3)
+      -- end, opts)
+      -- map('n', '\\;', function()
+      --   bmui.nav_file(4)
+      -- end, opts)
+      -- map('n', '\\n', bmui.nav_next, opts)
+      -- map('n', '\\p', bmui.nav_prev, opts)
     end,
   },
 }

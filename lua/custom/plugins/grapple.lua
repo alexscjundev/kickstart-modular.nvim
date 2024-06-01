@@ -24,25 +24,13 @@ return {
   },
   -- use my own keys
   keys = {
-    { '<M-b>', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
-    { '\\b', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
-    -- { '<M-m>', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
-
-    { '<M-s>', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },
-    { '\\s', '<cmd>Grapple toggle<cr>', desc = 'Toggle tag' },
-    -- { '<M-n>', '<cmd>Grapple cycle_tags next<cr>', desc = 'Go to next tag' },
-    -- { '<M-p>', '<cmd>Grapple cycle_tags prev<cr>', desc = 'Go to previous tag' },
-
-    -- { '<M-h>', '<cmd>Grapple select index=1<cr>', desc = 'Select first tag' },
-    -- { '<M-j>', '<cmd>Grapple select index=2<cr>', desc = 'Select second tag' },
-    -- { '<M-k>', '<cmd>Grapple select index=3<cr>', desc = 'Select third tag' },
-    -- { '<M-l>', '<cmd>Grapple select index=4<cr>', desc = 'Select fourth tag' },
-    -- { '<M-;>', '<cmd>Grapple select index=5<cr>', desc = 'Select fifth tag' },
-    --
-    -- { '<M-j>', '<cmd>Grapple select index=1<cr>', desc = 'Select first tag' },
-    -- { '<M-k>', '<cmd>Grapple select index=2<cr>', desc = 'Select second tag' },
-    -- { '<M-l>', '<cmd>Grapple select index=3<cr>', desc = 'Select third tag' },
-    -- { '<M-;>', '<cmd>Grapple select index=4<cr>', desc = 'Select fourth tag' },
+    { 'zy', '<cmd>Grapple toggle<cr>', desc = 'Tag a file' },
+    { 'zm', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
+    { 'zj', '<cmd>Grapple select index=1<cr>', desc = 'Select first tag' },
+    { 'zk', '<cmd>Grapple select index=2<cr>', desc = 'Select second tag' },
+    { 'zl', '<cmd>Grapple select index=3<cr>', desc = 'Select third tag' },
+    { 'z;', '<cmd>Grapple select index=4<cr>', desc = 'Select fourth tag' },
+    { "z'", '<cmd>Grapple select index=5<cr>', desc = 'Select fifth tag' },
 
     -- sixth tag does not work
     -- { "<M-'>", '<cmd>Grapple select index=6<cr>', desc = 'Select sixth tag' },
