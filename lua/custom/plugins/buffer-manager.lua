@@ -92,7 +92,7 @@ return {
       -- ===========================
       -- for usage on mac, because meta is finnicky
       -- backslash becomes new "harpoon key"
-      map({ 't', 'n' }, 'zb', bmui.toggle_quick_menu, opts)
+      map({ 't', 'n' }, 'z-', bmui.toggle_quick_menu, opts)
       -- map({ 't', 'n' }, '\\m', bmui.toggle_quick_menu, opts)
       -- map('n', '\\j', function()
       --   bmui.nav_file(1)
