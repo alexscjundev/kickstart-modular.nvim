@@ -84,6 +84,9 @@ return {
         ["m"] = "move",
         ["q"] = "close_window",
         ["R"] = "refresh",
+        ["<C-b>"] = function()
+          vim.cmd("wincmd p")  -- Jump to previous (last accessed) window
+        end,
       },
     },
 
