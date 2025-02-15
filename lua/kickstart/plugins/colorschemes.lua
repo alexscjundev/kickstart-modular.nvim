@@ -22,8 +22,8 @@ return {
     'EdenEast/nightfox.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      vim.cmd.colorscheme 'terafox'
-      vim.cmd "set bg=dark"
+      vim.cmd.colorscheme 'carbonfox'
+      vim.cmd 'set bg=dark'
     end,
   },
 }
