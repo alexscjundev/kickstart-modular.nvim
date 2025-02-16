@@ -45,4 +45,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Makes autoread take effect immediately
+-- https://stackoverflow.com/questions/2490227/how-does-vims-autoread-work
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
+  desc = 'Trigger autoread when a buffer is entered',
+  callback = function()
+    vim.cmd 'checktime'
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
