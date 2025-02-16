@@ -111,29 +111,29 @@ return {
       },
     }
 
-    local buttons = {
-      type = 'group',
-      val = {
-        -- button('e', '  New file', '<cmd>ene <CR>'),
-        -- button('SPC s f', '󰈞  [S]earch [F]iles', 'Telescope find_files<CR>'),
-        -- button('SPC s .', '󰊄  [S]earch Recent Files', 'Telescope oldfiles<CR>'),
-        -- button('SPC f r', '  Frecency/MRU'),
-        -- button('SPC f g', '󰈬  Find word'),
-        -- button('SPC f m', '  Jump to bookmarks'),
-        -- button('SPC s l', '  Open last session'),
-        button('q', '  Quit', ':qa<CR>'),
-      },
-      opts = {
-        spacing = 0,
-      },
-    }
+    -- local buttons = {
+    --   type = 'group',
+    --   val = {
+    --     -- button('e', '  New file', '<cmd>ene <CR>'),
+    --     button('SPC s f', '󰈞  [S]earch [F]iles', ':Telescope find_files<CR>'),
+    --     -- button('SPC s .', '󰊄  [S]earch Recent Files', ':Telescope oldfiles<CR>'),
+    --     -- button('SPC f r', '  Frecency/MRU'),
+    --     -- button('SPC f g', '󰈬  Find word'),
+    --     -- button('SPC f m', '  Jump to bookmarks'),
+    --     -- button('SPC s l', '  Open last session'),
+    --     button('q', '  Quit', ':qa<CR>'),
+    --   },
+    --   opts = {
+    --     spacing = 0,
+    --   },
+    -- }
 
     local config = {
       layout = {
         { type = 'padding', val = 20 },
         header,
-        { type = 'padding', val = 2 },
-        buttons,
+        -- { type = 'padding', val = 2 },
+        -- buttons,
       },
       opts = {
         margin = 5,
