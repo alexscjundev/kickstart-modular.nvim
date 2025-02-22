@@ -27,6 +27,15 @@ return {
     end,
   },
 
+  {
+    'Mofiqul/vscode.nvim',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'vscode'
+      vim.o.background = 'dark'
+    end,
+  },
+
   -- This one shows error markers for some reason?
   -- { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
 }
