@@ -54,4 +54,8 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
   end,
 })
 
+-- suggestion from primeagen
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true, desc = 'Scroll down half-page and center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true, desc = 'Scroll up half-page and center' })
+
 -- vim: ts=2 sts=2 sw=2 et
